@@ -1,0 +1,16 @@
+﻿<h1>Upload Files Core</h1>
+
+<form method="post" enctype="multipart/form-data">
+    <input type="file" name="archivo" class="form-control"/>
+    <button class="btn btn-outline-info">
+        Upload File
+    </button>
+</form>
+
+<a href="@ViewData["URLFICHERO"]" target="_blank">
+    @ViewData["URLFICHERO"]
+</a>
+
+<h2 style="color:blue">
+    @ViewData["MENSAJE"]
+</h2>
