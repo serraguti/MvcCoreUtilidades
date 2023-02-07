@@ -6,8 +6,9 @@ string azureKeys =
     builder.Configuration.GetConnectionString("azurestoragekeys");
 builder.Services.AddTransient<ServiceStorageFiles>
     (x => new ServiceStorageFiles(azureKeys));
+builder.Services.AddTransient<ServiceStorageBlobs>
+    (x => new ServiceStorageBlobs(azureKeys));
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<HelperPathProvider>();
 //DICHO OBJETO DEBE SER INYECTADO COMO Singleton, LO QUE 
