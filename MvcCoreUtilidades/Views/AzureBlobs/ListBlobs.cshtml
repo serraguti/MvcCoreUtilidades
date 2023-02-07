@@ -9,3 +9,18 @@
 
 <hr/>
 
+<ul class="list-group">
+    @foreach (BlobModel blob in Model)
+    {
+        <li class="list-group-item list-group-item-info">
+            @blob.Nombre
+            <img src="@blob.Url" style="width:150px; height: 150px;"/>
+            <a asp-controller="AzureBlobs"
+                asp-action="DeleteBlob"
+                asp-route-containername="@ViewData["CONTAINERNAME"]"
+                asp-route-nombreblob="@blob.Nombre">
+                <img src="~/images/delete.png" style="width:40px; height: 40px"/>
+            </a>
+        </li>
+    }
+</ul>

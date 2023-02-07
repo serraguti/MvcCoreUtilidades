@@ -13,6 +13,12 @@
         <li class="list-group-item">
             @container
             <a asp-controller="AzureBlobs"
+                asp-action="ListBlobs"
+                asp-route-containername="@container"
+                class="btn btn-outline-info">
+                Blobs
+            </a>
+            <a asp-controller="AzureBlobs"
                 asp-action="DeleteContainer"
                 asp-route-containername="@container">
                 <img src="~/images/delete.png" style="width: 40px; height: 40px"/>
