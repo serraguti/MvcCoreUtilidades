@@ -1,3 +1,11 @@
 ﻿@model List<BlobModel>
 
-<h1>Azure Blobs List</h1>
+<h1>Azure Blobs List, Container: @ViewData["CONTAINERNAME"]</h1>
+
+<a asp-controller="AzureBlobs"
+    asp-action="ListContainers">
+    Volver a Containers
+</a>
+
+<hr/>
+
