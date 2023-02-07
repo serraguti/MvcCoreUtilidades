@@ -1,6 +1,11 @@
 using MvcCoreUtilidades.Helpers;
+using MvcCoreUtilidades.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+string azureKeys =
+    builder.Configuration.GetConnectionString("azurestoragekeys");
+builder.Services.AddTransient<ServiceStorageFiles>
+    (x => new ServiceStorageFiles(azureKeys));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

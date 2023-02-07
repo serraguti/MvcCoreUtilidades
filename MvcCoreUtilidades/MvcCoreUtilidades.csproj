@@ -10,4 +10,8 @@
     <Folder Include="wwwroot\uploads\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Azure.Storage.Files.Shares" Version="12.12.1" />
+  </ItemGroup>
+
 </Project>
