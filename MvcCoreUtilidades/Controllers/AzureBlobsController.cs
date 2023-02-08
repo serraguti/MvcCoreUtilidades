@@ -53,5 +53,28 @@ namespace MvcCoreUtilidades.Controllers
             return RedirectToAction("ListBlobs",
                 new { containername = containerName });
         }
+
+        public IActionResult UploadBlob(string containerName)
+        {
+            ViewData["CONTAINERNAME"] = containerName;
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UploadBlob
+            (string containername, IFormFile file)
+        {
+            string filename = file.FileName;
+            //SUBIMOS EL STREAM QUE VIENE EN file
+            using (Stream stream = file.OpenReadStream())
+            {
+                await this.service.UploadBlobAsync
+                    (containername, filename, stream);
+            }
+            //LO LLEVAMOS DE NUEVO A LA PAGINA PARA MOSTRAR
+            //TODOS LOS BLOBS
+            return RedirectToAction("ListBlobs",
+                new { containername = containername });
+        }
     }
 }
