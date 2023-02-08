@@ -8,6 +8,9 @@ builder.Services.AddTransient<ServiceStorageFiles>
     (x => new ServiceStorageFiles(azureKeys));
 builder.Services.AddTransient<ServiceStorageBlobs>
     (x => new ServiceStorageBlobs(azureKeys));
+builder.Services.AddTransient<ServiceStorageTables>
+    (z => new ServiceStorageTables(azureKeys));
+
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<HelperPathProvider>();
