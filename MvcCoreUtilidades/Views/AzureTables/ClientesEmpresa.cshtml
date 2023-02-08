@@ -15,63 +15,68 @@
     </button>
 </form>
 
-<table class="table table-info">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.IdCliente)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Empresa)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Salario)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Edad)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PartitionKey)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RowKey)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Timestamp)
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdCliente)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Empresa)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Salario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Edad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PartitionKey)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RowKey)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Timestamp)
-            </td>
-        </tr>
+@if (Model != null)
+{
+    <table class="table table-info">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.IdCliente)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Empresa)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Salario)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Edad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PartitionKey)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RowKey)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Timestamp)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdCliente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Empresa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Salario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Edad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PartitionKey)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RowKey)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Timestamp)
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>    
 }
-    </tbody>
-</table>
+
+
