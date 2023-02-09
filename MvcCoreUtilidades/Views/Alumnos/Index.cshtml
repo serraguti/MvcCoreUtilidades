@@ -1,0 +1,98 @@
+﻿@model IEnumerable<MvcCoreUtilidades.Models.Alumno>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Alumnos Azure</h1>
+
+<form method="post">
+    <label>Seleccione un curso</label>
+    <select name="curso" class="form-control">
+        <option>JAVA</option>
+        <option>EOI 2023</option>
+        <option>TAJAMAR</option>
+        <option>NET</option>
+        <option>SISTEMAS</option>
+        <option>AZURE</option>
+    </select>
+    <button class="btn btn-outline-info">
+        Mostrar alumnos
+    </button>
+</form>
+
+@if (Model != null)
+{
+    <table class="table table-warning">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.IdAlumno)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Curso)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Apellidos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nota)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PartitionKey)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RowKey)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Timestamp)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdAlumno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Curso)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apellidos)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nota)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PartitionKey)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RowKey)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Timestamp)
+                </td>
+                <td>
+                    <a asp-controller="Alumnos"
+                        asp-action="Delete"
+                        asp-route-curso="@item.Curso"
+                        asp-route-partitionkey="@item.PartitionKey"
+                        asp-route-rowkey="@item.RowKey">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>    
+}
+
+
